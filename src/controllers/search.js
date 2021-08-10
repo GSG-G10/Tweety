@@ -21,7 +21,22 @@ const searchRouter =(req, res, next) => {
     fetch(url, {headers: headers})
   .then(response => response.json())
   .then(response => {
-    res.json(response);
+    let resObj = [];
+    for(let i =0; i< 15; i++){
+    let item = {
+        created_at : response.statuses[0].created_at,
+        text: response.statuses[0].text,
+        entities: response.statuses[0].entities,
+        user : {
+          screen_name: response.statuses[0].user.screen_name,
+          name: response.statuses[0].user.name,
+          profile_image_url: response.statuses[0].user.profile_image_url
+        }
+      }; 
+
+      resObj.push(item);
+    }
+    res.json(resObj);
   }).catch(console.log);
     
 };

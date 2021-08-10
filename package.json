@@ -4,7 +4,8 @@
   "author": "PiotrBerebecki",
   "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js",
+    "test": "jest"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
@@ -15,6 +16,8 @@
     "twitter": "^1.7.1"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "jest": "^27.0.6",
+    "nodemon": "^1.11.0",
+    "supertest": "^6.1.4"
   }
 }

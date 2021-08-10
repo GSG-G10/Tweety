@@ -1,7 +1,4 @@
-// use express.Router() class and load it with controllers
-const express = require('express');
-const router = express.Router();
-const path =require('path');
+const moment = require('moment');
 const fetch= require('node-fetch');
 
 
@@ -9,7 +6,6 @@ const BearerToken =  "AAAAAAAAAAAAAAAAAAAAAHyeSQEAAAAAyKVnk8WiMYY0OOqEMmG%2Fge3P
 // put router in router . js here just call the function 
 const searchRouter =(req, res, next) => {
 
-    console.log('eman');
     const userName= req.params.userName;
     const url = `https://api.twitter.com/1.1/search/tweets.json?q=${userName}`;
 
@@ -24,20 +20,22 @@ const searchRouter =(req, res, next) => {
     let resObj = [];
     for(let i =0; i< response.statuses.length; i++){
     let item = {
-        created_at : response.statuses[0].created_at,
-        text: response.statuses[0].text,
-        entities: response.statuses[0].entities,
+        created_at : moment(new Date(response.statuses[i].created_at)).fromNow(),
+        text: response.statuses[i].text,
+        entities: response.statuses[i].entities,
         user : {
-          screen_name: response.statuses[0].user.screen_name,
-          name: response.statuses[0].user.name,
-          profile_image_url: response.statuses[0].user.profile_image_url
+          screen_name: response.statuses[i].user.screen_name,
+          name: response.statuses[i].user.name,
+          profile_image_url: response.statuses[i].user.profile_image_url
         }
       }; 
 
       resObj.push(item);
     }
     res.json(resObj);
-  }).catch(console.log);
+  }).catch(err => {
+    res.json(err);
+  });
     
 };
 

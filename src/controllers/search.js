@@ -22,7 +22,7 @@ const searchRouter =(req, res, next) => {
   .then(response => response.json())
   .then(response => {
     let resObj = [];
-    for(let i =0; i< 15; i++){
+    for(let i =0; i< response.statuses.length; i++){
     let item = {
         created_at : response.statuses[0].created_at,
         text: response.statuses[0].text,

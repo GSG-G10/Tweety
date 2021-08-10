@@ -1,16 +1,22 @@
 const express = require('express');
 const app = express();
-const controllers = require('./controllers/routers');
 const path = require('path');
 
 
 
-app.use(controllers);
+const routers = require('./controllers/routers');
+
 
 app.disable('x-powered-by');
+app.set('port', process.env.PORT || 5000);
+app.use(express.json());
+app.use(express.urlencoded({extended : false}));
 app.use(
-    express.static(path.join(__dirname, '..', 'public'), { maxAge: '30d' })
-  );
-app.listen(5000, () => {
+  express.static(path.join(__dirname, '..', 'public'), { maxAge: '30d' })
+);
+
+app.use(routers);
+
+app.listen(app.get('port'), () => {
     console.log('listen');
 })

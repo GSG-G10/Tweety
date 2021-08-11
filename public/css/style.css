@@ -99,6 +99,18 @@ body {
     margin-top: 0.35rem;
     margin-bottom: 0.35rem;
   }
+
+  #search-profile{
+    background-color: #47cdff;
+    border-radius: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    color: white;
+    margin-top: 0.35rem;
+    margin-bottom: 0.35rem;
+  }
   
   #friends {
     background-color: rgba(219, 234, 254, 1);

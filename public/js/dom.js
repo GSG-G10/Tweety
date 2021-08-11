@@ -71,8 +71,11 @@ const showTweets = (tweets) => {
 };
 
 const showProfile = (user,box) => {
+
+    box.innerHTML = "";
+
     const avatarImg = document.createElement('img');
-    avatarImg.src = user.profile_image_url;
+    avatarImg.src = user[0].profile_image_url;
     avatarImg.style.width = "50px";
 
     const avatar = document.createElement('div');
@@ -80,13 +83,13 @@ const showProfile = (user,box) => {
     avatar.appendChild(avatarImg);
 
     const name = document.createElement('h5');
-    name.textContent = user.name;
+    name.textContent = user[0].name;
 
     const username = document.createElement('h6');
-    username.textContent = '@'+user.screen_name
+    username.textContent = '@'+user[0].screen_name
 
     const bio = document.createElement('p');
-    bio.textContent = user.description;
+    bio.textContent = user[0].description;
 
     const userDiv = document.createElement('div');
     userDiv.appendChild(name);
@@ -101,28 +104,28 @@ const showProfile = (user,box) => {
     const div1 = document.createElement('div');
     div1.classList.add('tweet-buttons');
 
-    if(user.location){
-        location.innerHTML = `<i class="fa fa-map-marker"></i> ${user.location}`;
+    if(user[0].location){
+        location.innerHTML = `<i class="fa fa-map-marker"></i> ${user[0].location}`;
         div1.appendChild(location);
     }
 
-    if(user.url){
-        url.innerHTML = `<i class="fa fa-link"></i> <a href="${user.url}">${user.url}</a>`;
+    if(user[0].url){
+        url.innerHTML = `<i class="fa fa-link"></i> <a href="${user[0].url}">${user[0].url}</a>`;
         div1.appendChild(url);
 
     }
 
-    if(user.created_at){
-        joindAt.innerHTML = `<i class="fa fa-calendar" aria-hidden="true"></i> Joined ${user.created_at}`;
+    if(user[0].created_at){
+        joindAt.innerHTML = `<i class="fa fa-calendar" aria-hidden="true"></i> Joined ${user[0].created_at}`;
         div1.appendChild(joindAt);
     }
 
     // followers
     const following = document.createElement('span');
-    following.textContent = user.friends_count + " Following";
+    following.textContent = user[0].friends_count + " Following";
 
     const followers = document.createElement('span');
-    followers.textContent = user.followers_count + " Followers";
+    followers.textContent = user[0].followers_count + " Followers";
 
     const div2 = document.createElement('div');
     div2.classList.add('tweet-buttons');

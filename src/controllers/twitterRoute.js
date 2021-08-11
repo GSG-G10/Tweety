@@ -29,7 +29,6 @@ const twitterRoute = (url,params, jsonRes) => {
         
     };
 
- 
     return router;
 };
 

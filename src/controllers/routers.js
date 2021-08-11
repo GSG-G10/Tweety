@@ -12,9 +12,11 @@ const twitterResponse =  require('./twitter-endpoints/tweets');
 const error = require('./error');
 
 router.get('/', mainRoute);
-router.get('/search/:userName', searchResponse);
+
 router.get('/followers/:userName', followerResponse);
 router.get('/tweets/:userName', twitterResponse);
+
+router.get('/search/:userName', searchResponse);
 
 
 

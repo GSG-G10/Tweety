@@ -19,4 +19,6 @@ app.use(routers);
 
 app.listen(app.get('port'), () => {
     console.log('listen');
-})
+});
+
+module.exports = app;

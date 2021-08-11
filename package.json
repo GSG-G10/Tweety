@@ -16,6 +16,7 @@
     "twitter": "^1.7.1"
   },
   "devDependencies": {
+    "connect-flash": "^0.1.1",
     "jest": "^27.0.6",
     "nodemon": "^1.11.0",
     "supertest": "^6.1.4"

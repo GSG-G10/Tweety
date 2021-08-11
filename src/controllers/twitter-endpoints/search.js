@@ -7,7 +7,12 @@ const params= (user) => {return {'screen_name': user}};
 
 
 
-let jsonFormat = (response) => {
+let jsonFormat =  (response) => {
+    
+    setTimeout(() => {
+        console.log('asd');
+    },1000);
+
     return {
             id: response[0].id,
             name: response[0].name,
@@ -17,9 +22,8 @@ let jsonFormat = (response) => {
             url : response[0].url,
             followers_count: response[0].followers_count,
             friends_count: response[0].friends_count,  
-            created_at: response[0].created_at,
+            created_at: moment(new Date(response[0].created_at)).format("MMMM YY"),
             profile_image_url: response[0].profile_image_url,
-            
     }; 
 }
 

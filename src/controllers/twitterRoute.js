@@ -1,8 +1,6 @@
 const fetch= require('node-fetch');
 const { URL, URLSearchParams } = require('url');
 const BearerToken =  "AAAAAAAAAAAAAAAAAAAAAHyeSQEAAAAAyKVnk8WiMYY0OOqEMmG%2Fge3PK9o%3Dx6eC85BME6x1QVZCihrjn2qVb6yogZyKjLXT6NbiTMwSsoLoc9";
-// put router in router . js here just call the function 
-
 
 
 const twitterRoute = (url,params, jsonRes) => {

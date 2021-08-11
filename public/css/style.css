@@ -113,7 +113,7 @@ body {
     border-radius: 0.5rem;
     margin-bottom: 0.5rem;
   }
-  
+
   .tweet-avatar {
     margin-right: 0.5rem;
     flex-shrink: 0;
@@ -185,3 +185,20 @@ body {
   .retweet-button:hover {
     color: rgb(13, 126, 64) !important;
   }
+
+  .loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    display: none;
+ }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

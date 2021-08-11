@@ -1,4 +1,6 @@
 const tweetsBox = document.querySelector('#tweets');
+const loader = document.querySelector('.loader');
+const tweetsDiv = document.querySelector('#tweets');
 
 const showSingleTweet = (tweet,tweetsBox) => {
     const avatarImg = document.createElement('img');
@@ -68,3 +70,20 @@ const showTweets = (tweets) => {
         showSingleTweet(tweet,tweetsBox);
     });
 };
+
+const showLoader = () => {
+    loader.style.display = "block";
+}
+
+const hideLoader = () => {
+    loader.style.display = "none";
+}
+
+const showErrorMessage = (message) => {
+    tweetsDiv.innerHTML = '';
+
+    const errorP = document.createElement("p");
+    errorP.textContent = message;
+    tweetsDiv.appendChild(errorP);
+
+}

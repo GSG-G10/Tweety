@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 let flash = require('connect-flash');
+require('env2')('.env');
 
 
 

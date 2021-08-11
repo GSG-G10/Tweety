@@ -1,6 +1,7 @@
 const fetch= require('node-fetch');
 const { URL, URLSearchParams } = require('url');
-const BearerToken =  "AAAAAAAAAAAAAAAAAAAAAHyeSQEAAAAAyKVnk8WiMYY0OOqEMmG%2Fge3PK9o%3Dx6eC85BME6x1QVZCihrjn2qVb6yogZyKjLXT6NbiTMwSsoLoc9";
+require('env2')('.env');
+const BearerToken =  process.env.TOKEN;
 
 
 const twitterRoute = (url,params, jsonRes) => {

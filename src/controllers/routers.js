@@ -5,12 +5,12 @@ const router = express.Router();
 
 
 const mainRoute =  require('./main');
-const searchRouter =  require('./search');
+const searchResponse =  require('./twitter-endpoints/search');
 
 const error = require('./error');
 
 router.get('/', mainRoute);
-router.get('/search/:userName', searchRouter);
+router.get('/search/:userName', searchResponse);
 
 router.use(error.notFound);
 router.use(error.serverError);

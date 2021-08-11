@@ -3,9 +3,15 @@ const router = express.Router();
 const path =require('path');
 
 
-// put router in router . js here just call the function 
-const mainRouter =(req, res, next) => {
+const homePage =(req, res, next) => {
     res.sendFile(path.join(__dirname, '..', '..', 'public', 'index.html'));
 };
 
-module.exports= mainRouter;
+const profilePage = (req, res, next) => {
+    res.sendFile(path.join(__dirname, '..', '..', 'public', 'profile.html'));
+}
+
+module.exports= {
+    homePage,
+    profilePage
+};

@@ -1,6 +1,5 @@
 const tweetsBox = document.querySelector('#tweets');
 const loader = document.querySelector('.loader');
-const tweetsDiv = document.querySelector('#tweets');
 
 const showSingleTweet = (tweet,tweetsBox) => {
     const avatarImg = document.createElement('img');
@@ -71,6 +70,82 @@ const showTweets = (tweets) => {
     });
 };
 
+const showProfile = (user,box) => {
+    const avatarImg = document.createElement('img');
+    avatarImg.src = user.profile_image_url;
+    avatarImg.style.width = "50px";
+
+    const avatar = document.createElement('div');
+    avatar.classList.add('tweet-avatar');
+    avatar.appendChild(avatarImg);
+
+    const name = document.createElement('h5');
+    name.textContent = user.name;
+
+    const username = document.createElement('h6');
+    username.textContent = '@'+user.screen_name
+
+    const bio = document.createElement('p');
+    bio.textContent = user.description;
+
+    const userDiv = document.createElement('div');
+    userDiv.appendChild(name);
+    userDiv.classList.add('user');
+
+
+     
+    const location = document.createElement('span');
+    const url = document.createElement('span');
+    const joindAt = document.createElement('span');
+
+    const div1 = document.createElement('div');
+    div1.classList.add('tweet-buttons');
+
+    if(user.location){
+        location.innerHTML = `<i class="fa fa-map-marker"></i> ${user.location}`;
+        div1.appendChild(location);
+    }
+
+    if(user.url){
+        url.innerHTML = `<i class="fa fa-link"></i> <a href="${user.url}">${user.url}</a>`;
+        div1.appendChild(url);
+
+    }
+
+    if(user.created_at){
+        joindAt.innerHTML = `<i class="fa fa-calendar" aria-hidden="true"></i> Joined ${user.created_at}`;
+        div1.appendChild(joindAt);
+    }
+
+    // followers
+    const following = document.createElement('span');
+    following.textContent = user.friends_count + " Following";
+
+    const followers = document.createElement('span');
+    followers.textContent = user.followers_count + " Followers";
+
+    const div2 = document.createElement('div');
+    div2.classList.add('tweet-buttons');
+    div2.appendChild(following);
+    div2.appendChild(followers);
+
+    const tweetBody = document.createElement('div');
+    tweetBody.classList.add('tweet-body');
+    tweetBody.appendChild(userDiv);
+    tweetBody.appendChild(username);
+    tweetBody.appendChild(bio);
+    tweetBody.appendChild(div1);
+    tweetBody.appendChild(div2);
+
+
+    const tweetDiv = document.createElement('div');
+    tweetDiv.classList.add('tweet');
+    tweetDiv.appendChild (avatar);
+    tweetDiv.appendChild(tweetBody);
+
+    box.appendChild(tweetDiv);
+}
+
 const showLoader = () => {
     loader.style.display = "block";
 }
@@ -80,10 +155,10 @@ const hideLoader = () => {
 }
 
 const showErrorMessage = (message) => {
-    tweetsDiv.innerHTML = '';
+    tweetsBox.innerHTML = '';
 
     const errorP = document.createElement("p");
     errorP.textContent = message;
-    tweetsDiv.appendChild(errorP);
+    tweetsBox.appendChild(errorP);
 
 }

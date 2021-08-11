@@ -161,15 +161,24 @@ body {
   
   .tweet-buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
+    margin-top: 1rem;
   }
-  
-  .tweet-buttons a {
-    transition: color 0.5s ease;
-    color: rgb(179, 182, 187);
+  .tweet-buttons span{
+    color: rgb(110,118,125,1);
+    margin-right: 1rem;
   }
-  
+
+  .tweet-buttons a{
+    color: rgb(110,118,125,1);
+    text-decoration: none;
+  }
+
+  .tweet-buttons a:hover{
+    color:rgb(27, 149, 224);
+  }
+
   .liked {
     color: rgb(224, 36, 94) !important;
   }
